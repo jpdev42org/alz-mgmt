@@ -87,7 +87,9 @@
       "value": []
     },
     "parExcludedPolicyAssignments": {
-      "value": []
+      "value": [
+        "Enable-DDoS-VNET"
+      ]
     },
     "parTelemetryOptOut": {
       "value": false
