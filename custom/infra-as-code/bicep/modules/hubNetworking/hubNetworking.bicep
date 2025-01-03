@@ -412,21 +412,21 @@ var varZtnP1Trigger = (parDdosEnabled && parAzFirewallEnabled && (parAzFirewallT
 var varAzFirewallUseCustomPublicIps = length(parAzFirewallCustomPublicIps) > 0
 
 //DDos Protection plan will only be enabled if parDdosEnabled is true.
-resource resDdosProtectionPlan 'Microsoft.Network/ddosProtectionPlans@2023-02-01' = if (parDdosEnabled) {
-  name: parDdosPlanName
-  location: parLocation
-  tags: parTags
-}
+// resource resDdosProtectionPlan 'Microsoft.Network/ddosProtectionPlans@2023-02-01' = if (parDdosEnabled) {
+//   name: parDdosPlanName
+//   location: parLocation
+//   tags: parTags
+// }
 
 // Create resource lock if parDdosEnabled is true and parGlobalResourceLock.kind != 'None' or if parDdosLock.kind != 'None'
-resource resDDoSProtectionPlanLock 'Microsoft.Authorization/locks@2020-05-01' = if (parDdosEnabled && (parDdosLock.kind != 'None' || parGlobalResourceLock.kind != 'None')) {
-  scope: resDdosProtectionPlan
-  name: parDdosLock.?name ?? '${resDdosProtectionPlan.name}-lock'
-  properties: {
-    level: (parGlobalResourceLock.kind != 'None') ? parGlobalResourceLock.kind : parDdosLock.kind
-    notes: (parGlobalResourceLock.kind != 'None') ? parGlobalResourceLock.?notes : parDdosLock.?notes
-  }
-}
+// resource resDDoSProtectionPlanLock 'Microsoft.Authorization/locks@2020-05-01' = if (parDdosEnabled && (parDdosLock.kind != 'None' || parGlobalResourceLock.kind != 'None')) {
+//   scope: resDdosProtectionPlan
+//   name: parDdosLock.?name ?? '${resDdosProtectionPlan.name}-lock'
+//   properties: {
+//     level: (parGlobalResourceLock.kind != 'None') ? parGlobalResourceLock.kind : parDdosLock.kind
+//     notes: (parGlobalResourceLock.kind != 'None') ? parGlobalResourceLock.?notes : parDdosLock.?notes
+//   }
+// }
 
 resource resHubVnet 'Microsoft.Network/virtualNetworks@2023-02-01' = {
   dependsOn: [
@@ -1121,7 +1121,7 @@ output outPrivateDnsZonesNames array = (parPrivateDnsZonesEnabled
     )
   : [])
 
-output outDdosPlanResourceId string = parDdosEnabled ? resDdosProtectionPlan.id : ''
+// output outDdosPlanResourceId string = parDdosEnabled ? resDdosProtectionPlan.id : ''
 output outHubVirtualNetworkName string = resHubVnet.name
 output outHubVirtualNetworkId string = resHubVnet.id
 output outHubRouteTableId string = parAzFirewallEnabled ? resHubRouteTable.id : ''
