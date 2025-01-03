@@ -69,12 +69,6 @@
     "parAzBastionNsgName": {
       "value": "nsg-AzureBastionSubnet-eastus2"
     },
-    "parDdosEnabled": {
-      "value": false
-    },
-    "parDdosPlanName": {
-      "value": "alz-ddos-plan-eastus2"
-    },
     "parAzFirewallEnabled": {
       "value": false
     },
@@ -201,12 +195,6 @@
       }
     },
     "parBastionLock": {
-      "value": {
-        "kind": "None",
-        "notes": "This lock was created by the ALZ Bicep Hub Networking Module."
-      }
-    },
-    "parDdosLock": {
       "value": {
         "kind": "None",
         "notes": "This lock was created by the ALZ Bicep Hub Networking Module."
