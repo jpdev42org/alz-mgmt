@@ -137,22 +137,22 @@ param parBastionLock lockType = {
   notes: 'This lock was created by the ALZ Bicep Hub Networking Module.'
 }
 
-@sys.description('Switch to enable/disable DDoS Network Protection deployment.')
-param parDdosEnabled bool = true
+// @sys.description('Switch to enable/disable DDoS Network Protection deployment.')
+param parDdosEnabled bool = false
 
-@sys.description('DDoS Plan Name.')
-param parDdosPlanName string = '${parCompanyPrefix}-ddos-plan'
+// @sys.description('DDoS Plan Name.')
+// param parDdosPlanName string = '${parCompanyPrefix}-ddos-plan'
 
-@sys.description('''Resource Lock Configuration for DDoS Plan.
+// @sys.description('''Resource Lock Configuration for DDoS Plan.
 
-- `kind` - The lock settings of the service which can be CanNotDelete, ReadOnly, or None.
-- `notes` - Notes about this lock.
+// - `kind` - The lock settings of the service which can be CanNotDelete, ReadOnly, or None.
+// - `notes` - Notes about this lock.
 
-''')
-param parDdosLock lockType = {
-  kind: 'None'
-  notes: 'This lock was created by the ALZ Bicep Hub Networking Module.'
-}
+// ''')
+// param parDdosLock lockType = {
+//   kind: 'None'
+//   notes: 'This lock was created by the ALZ Bicep Hub Networking Module.'
+// }
 
 @sys.description('Switch to enable/disable Azure Firewall deployment.')
 param parAzFirewallEnabled bool = true
